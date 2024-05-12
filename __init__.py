@@ -35,7 +35,7 @@ def rename_dir(dir_path="", pat=""):
     for root, dirs, files in os.walk(dir_path):
         for name in files:
             targets.append(os.path.join(root, name))
-    for _t in targets:
+    for _t in natsort.natsorted(targets):
         _r = rename(_t, pat)
         if _r:
             print('Bef:', _r[0])
